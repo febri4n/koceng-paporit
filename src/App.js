@@ -1,7 +1,8 @@
 import './style.css';
 import fluffykins from './images/fluffykins.png'
-import { BsMailbox2, BsTelephoneFill, BsStar, BsStarFill } from "react-icons/bs";
+import { BsMailbox2, BsTelephoneFill } from "react-icons/bs";
 import React from 'react';
+import Star from './components/Star';
 
 function App() {
   const [contact, setContact] = React.useState({
@@ -27,7 +28,8 @@ function App() {
     <div className='contacts'>
       <div className='contact-card'>
         <img src={fluffykins} alt='gambar koceng' />
-        <h2>{`${contact.firstName} ${contact.lastName}`} {contact.isFavorite ? <BsStar className='icon' size={23} onClick={toggleFavorite} /> : <BsStarFill className='icon' size={23} onClick={toggleFavorite} />} </h2>
+        {/* <h2>{`${contact.firstName} ${contact.lastName}`} {contact.isFavorite ? <BsStar className='icon' size={23} onClick={toggleFavorite} /> : <BsStarFill className='icon' size={23} onClick={toggleFavorite} />} </h2> */}
+        <Star data={contact} handleClick={toggleFavorite} />
         <div className='info-group'>
           <BsTelephoneFill size={23} />
           <p>{contact.phone}</p>
